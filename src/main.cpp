@@ -214,10 +214,11 @@ void setup_gpio() {
  **  Config tft
  *********************************************************************/
 void begin_tft() {
-    tft.setRotation(bruceConfigPins.rotation); // sometimes it misses the first command
+    tft.setRotation(1);
     tft.invertDisplay(bruceConfig.colorInverted);
-    tft.setRotation(bruceConfigPins.rotation);
+    tft.setRotation(1);
     tftWidth = tft.width();
+
 #ifdef HAS_TOUCH
     tftHeight = tft.height() - 20;
 #else
@@ -443,7 +444,7 @@ void setup() {
     setup_gpio();
 #if defined(HAS_SCREEN)
     tft.init();
-    tft.setRotation(bruceConfigPins.rotation);
+    tft.setRotation(1);
     tft.fillScreen(TFT_BLACK);
     // bruceConfig is not read yet.. just to show something on screen due to long boot time
     tft.setTextColor(TFT_PURPLE, TFT_BLACK);
